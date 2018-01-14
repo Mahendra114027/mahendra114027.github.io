@@ -1,83 +1,791 @@
 <!DOCTYPE html>
-<html >
-<head>
+<html>
+  <title>Mahendra</title>
+
   <meta charset="UTF-8">
-  <title>Remix Challenge</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link  rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-  
-      <link rel="stylesheet" href="css/style.css">
+  <!-- Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil">
 
-  
-</head>
+  <!-- Local Styles-->
+  <style>
+    body {font-family: 'Nunito', sans-serif;}
+    h1,h2,h3,h4,h5,h6 {font-family: 'Allerta Stencil', Sans-serif; }
+    .w3-row-padding img {
+      margin-bottom: 12px
+    }
+    .container {
+        height: 150px;
+        line-height: 115px;
+        text-align: center;
+    }
+    .resize_fit_center {
+        max-width:100%;
+        max-height:100%;
+        vertical-align: middle;
+    }
+    /* Set the width of the sidebar to 120px */
+    .w3-sidebar {
+      width: 120px;background: #222;
+    }
+    /* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+    #main {
+      margin-left: 120px
+    }
+    /* Remove margins from "page content" on small screens */
+    @media only screen and (max-width: 600px) {
+      #main {
+        margin-left: 0
+        }
+      }
+  </style>
 
-<body>
-  <!-- this is the markup. you can change the details (your own name, your own avatar etc.) but don’t change the basic structure! -->
 
-<aside class="profile-card">
+  <!-- Body -->
+  <body class="w3-black">
 
-    <header>
-    
-        <!-- here’s the avatar -->
-        <a href="http://victory-design.ru/">
-            <img src="http://victory-design.ru/sandbox/codepen/profile_card/avatar.svg" />
-        </a>
-        
-        <!-- the username -->
-        <h1>David Jones</h1>
-        
-        <!-- and role or location -->
-        <h2>Web Developer</h2>
-    
-    </header>
+    <!--Sidebar for medium and large screens -->
+    <nav class="w3-sidebar w3-black w3-bar-block w3-small w3-hide-small w3-center">
+      <!-- Avatar image in top left corner -->
+      <img src="img/Shadow3.jpg" style="width:100%">
+      <a href="#" class="w3-bar-item w3-button w3-padding-large w3-hover-amber">
+        <i class="fa fa-home w3-xxlarge"></i>
+        <p style="font-family: 'Allerta Stencil', Sans-serif">HOME</p>
+      </a>
+      <a href="#about" class="w3-bar-item w3-button w3-padding-large w3-hover-amber">
+        <i class="fa fa-user-circle w3-xxlarge"></i>
+        <p style="font-family: 'Allerta Stencil', Sans-serif">ABOUT</p>
+      </a>
+      <a href="#timeline" class="w3-bar-item w3-button w3-padding-large w3-hover-amber">
+        <i class="fa fa-calendar w3-xxlarge"></i>
+        <p style="font-family: 'Allerta Stencil', Sans-serif">TIMELINE</p>
+      </a>
+      <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hover-amber">
+        <i class="fa fa-envelope w3-xxlarge"></i>
+        <p style="font-family: 'Allerta Stencil', Sans-serif">CONTACT</p>
+      </a>
+    </nav>
 
-    <!-- bit of a bio; who are you? -->
-    <div class="profile-bio">
-    
-        <p>Even when everything is perfect, you can always make it better. Break barriers in your head, create something crazy and don't forget Code is Poetry...</p>
-    
+    <!-- Navbar on small screens (Hidden on medium and large screens) -->
+    <div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
+      <div class="w3-bar w3-black w3-center w3-medium">
+        <div class="w3-dropdown-click w3-left">
+          <button class="w3-button w3-ripple w3-hover-amber" onclick="dropDown()">
+            <i class="fa fa-bars w3-xlarge"></i>
+          </button>
+          <div id="dropDownCard" class="w3-dropdown-content w3-bar-block w3-amber w3-card-4 w3-right">
+            <a href="#" class="w3-bar-item w3-button w3-hover-black">HOME</a>
+            <a href="#about" class="w3-bar-item w3-button w3-hover-black">ABOUT</a>
+            <a href="#timeline" class="w3-bar-item w3-button w3-hover-black">TIMELINE</a>
+            <a href="#contact" class="w3-bar-item w3-button w3-hover-black">CONTACT</a>
+          </div>
+        </div>
+        <div class="w3-text-light-grey w3-center">
+          <h1 class="w3-hide-medium w3-hide-large w3-medium">
+              <a class="typewrite" style="font-family: 'Allerta Stencil', Sans-serif; color: white ; text-shadow:1px 1px 0 #444" data-period="2000" data-type='[ "HI !!!", "I AM MAHENDRA."]'>
+              <span class="wrap"></span>
+              </a>
+          </h1>
+        </div>
+      </div>
     </div>
 
-    <!-- some social links to show off -->
-    <ul class="profile-social-links">
-        
-        <!-- twitter - el clásico  -->
-        <li>
-            <a href="https://www.facebook.com/v1ctory">
-                <svg viewBox="0 0 24 24">
-                    <path fill="#3b5998" d="M17,2V2H17V6H15C14.31,6 14,6.81 14,7.5V10H14L17,10V14H14V22H10V14H7V10H10V6A4,4 0 0,1 14,2H17Z" />
-                </svg>
+    <!-- Header for small, medium and large screens-->
+    <header class="w3-center w3-black" id="home">
+      <img src="img/AkhilMain.jpg" alt="boy" class="w3-image" width=100% height=100%>
+      <div class="w3-display-topmiddle w3-padding-large w3-wide w3-text-light-grey w3-center">
+        <h1 class="w3-hide-medium w3-hide-small w3-jumbo">
+            <a class="typewrite" style="font-family: 'Allerta Stencil', Sans-serif; color: white ; text-shadow:1px 1px 0 #444" data-period="2000" data-type='[ "HI !!!", "I AM AKHIL."]'>
+            <span class="wrap"></span>
             </a>
-        </li>
-        
-        <!-- envato – use this one to link to your marketplace profile -->
-        <li>
-            <a href="http://themeforest.net/user/Victory-Design">
-                <svg viewBox="0 0 24 24">
-                    <path fill="#82B541" d="M18.334,1.909c-0.604-0.327-2.313-0.125-4.375,0.503c-3.621,2.464-6.664,6.11-6.89,11.971c-0.05,0.148-0.402-0.025-0.478-0.053c-0.981-1.859-1.358-3.846-0.554-6.688C6.189,7.39,5.686,7.089,5.611,7.165C5.435,7.34,4.681,8.145,4.178,9c-2.464,4.249-0.855,9.733,3.445,12.122c4.299,2.389,9.733,0.855,12.12-3.445C22.533,12.695,19.969,2.814,18.334,1.909z"/>
-                </svg>
+        </h1>
+        <h1 class="w3-hide-large w3-hide-small w3-xxlarge">
+            <a class="typewrite" style="font-family: 'Allerta Stencil', Sans-serif; color: white ; text-shadow:1px 1px 0 #444" data-period="2000" data-type='[ "HI !!!", "I AM AKHIL."]'>
+            <span class="wrap"></span>
             </a>
-        </li>
-        
-        <!-- codepen - your codepen profile-->
-        <li>
-            <a href="https://codepen.io/VictoryDesign/">
-                <svg viewBox="0 0 24 24">
-                    <path fill="#000000" d="M19.45,13.29L17.5,12L19.45,10.71M12.77,18.78V15.17L16.13,12.93L18.83,14.74M12,13.83L9.26,12L12,10.17L14.74,12M11.23,18.78L5.17,14.74L7.87,12.93L11.23,15.17M4.55,10.71L6.5,12L4.55,13.29M11.23,5.22V8.83L7.87,11.07L5.17,9.26M12.77,5.22L18.83,9.26L16.13,11.07L12.77,8.83M21,9.16C21,9.15 21,9.13 21,9.12C21,9.1 21,9.08 20.97,9.06C20.97,9.05 20.97,9.03 20.96,9C20.96,9 20.95,9 20.94,8.96C20.94,8.95 20.93,8.94 20.92,8.93C20.92,8.91 20.91,8.89 20.9,8.88C20.89,8.86 20.88,8.85 20.88,8.84C20.87,8.82 20.85,8.81 20.84,8.79C20.83,8.78 20.83,8.77 20.82,8.76A0.04,0.04 0 0,0 20.78,8.72C20.77,8.71 20.76,8.7 20.75,8.69C20.73,8.67 20.72,8.66 20.7,8.65C20.69,8.64 20.68,8.63 20.67,8.62C20.66,8.62 20.66,8.62 20.66,8.61L12.43,3.13C12.17,2.96 11.83,2.96 11.57,3.13L3.34,8.61C3.34,8.62 3.34,8.62 3.33,8.62C3.32,8.63 3.31,8.64 3.3,8.65C3.28,8.66 3.27,8.67 3.25,8.69C3.24,8.7 3.23,8.71 3.22,8.72C3.21,8.73 3.2,8.74 3.18,8.76C3.17,8.77 3.17,8.78 3.16,8.79C3.15,8.81 3.13,8.82 3.12,8.84C3.12,8.85 3.11,8.86 3.1,8.88C3.09,8.89 3.08,8.91 3.08,8.93C3.07,8.94 3.06,8.95 3.06,8.96C3.05,9 3.05,9 3.04,9C3.03,9.03 3.03,9.05 3.03,9.06C3,9.08 3,9.1 3,9.12C3,9.13 3,9.15 3,9.16C3,9.19 3,9.22 3,9.26V14.74C3,14.78 3,14.81 3,14.84C3,14.85 3,14.87 3,14.88C3,14.9 3,14.92 3.03,14.94C3.03,14.95 3.03,14.97 3.04,15C3.05,15 3.05,15 3.06,15.04C3.06,15.05 3.07,15.06 3.08,15.07C3.08,15.09 3.09,15.11 3.1,15.12C3.11,15.14 3.12,15.15 3.12,15.16C3.13,15.18 3.15,15.19 3.16,15.21C3.17,15.22 3.17,15.23 3.18,15.24C3.2,15.25 3.21,15.27 3.22,15.28C3.23,15.29 3.24,15.3 3.25,15.31C3.27,15.33 3.28,15.34 3.3,15.35C3.31,15.36 3.32,15.37 3.33,15.38C3.34,15.38 3.34,15.38 3.34,15.39L11.57,20.87C11.7,20.96 11.85,21 12,21C12.15,21 12.3,20.96 12.43,20.87L20.66,15.39C20.66,15.38 20.66,15.38 20.67,15.38C20.68,15.37 20.69,15.36 20.7,15.35C20.72,15.34 20.73,15.33 20.75,15.31C20.76,15.3 20.77,15.29 20.78,15.28C20.79,15.27 20.8,15.25 20.82,15.24C20.83,15.23 20.83,15.22 20.84,15.21C20.85,15.19 20.87,15.18 20.88,15.16C20.88,15.15 20.89,15.14 20.9,15.12C20.91,15.11 20.92,15.09 20.92,15.07C20.93,15.06 20.94,15.05 20.94,15.04C20.95,15 20.96,15 20.96,15C20.97,14.97 20.97,14.95 20.97,14.94C21,14.92 21,14.9 21,14.88C21,14.87 21,14.85 21,14.84C21,14.81 21,14.78 21,14.74V9.26C21,9.22 21,9.19 21,9.16Z" />
-                </svg>
-            </a>
-        </li>
-        
-        <!-- add or remove social profiles as you see fit -->
-    
-    </ul>
+        </h1>
+      </div>
+    </header>
+    <!-- Page Content -->
+    <div class="w3-padding-large" id="main">
 
-</aside>
-<!-- that’s all folks! -->
-  
-  
-</body>
+      <!-- About Section -->
+      <div class="w3-content w3-justify w3-text-light-grey w3-padding-64" id="about">
+        <h2 class="w3-text-light-grey">ABOUT ME</h2>
+        <hr style="width:200px" class="w3-opacity">
+
+        <!-- <div class="w3-hide-medium w3-hide-large container">
+          <img src="img/Akhil.jpg" class="w3-circle" alt="Norway" style="height:100%">
+        </div> -->
+
+        <div>
+          <center><img src="img/Mahendra.jpeg" alt="Avtar" style="width:150px;border-radius: 30%;border-style: solid;border-color: white;border-width: 6px;"></center>
+          <br>
+          <h5 class="w3-text-red"><center>DEVELOPER | TECH-ENTHUSIAST | GAMER</center></h5>
+          <p>
+            I am a final <strong>year</strong> undergraduate from <strong>Computer Science and Engineering</strong> pursuing my engineering from Sir M. Visvesvaraya Institute of Technology.
+            A home chef hobbyist and a developer by passion. Being a tech enthusiast I regularly watch 
+            <strong>yearoutube</strong> for tech updates and try to grasp a better understanding of their applications.
+          </p>
+          <p>
+            I LOVE making small apps using web technologies like javascript and frameworks like NodeJS in my spare time.
+            I am an ANIME lover, and I love playing FIFA and Modern Warfare in my leisure time. 
+          </p>
+          <div class="w3-center w3-text-amber">
+            <h5>
+              <i class="fa fa-angle-double-down"></i> Checkout my Github account for my work <i class="fa fa-angle-double-down"></i>
+            </h5>
+              <a style="text-decoration:none;" href="https://github.com/Mahendra114027" target="_blank">
+                  <button class="w3-button w3-amber w3-hover-light-gray w3-ripple w3-round-large w3-padding-large w3-section">
+                    <i class="fa fa-github w3-xxxlarge w3-hover-opacity"></i>
+                  </button>
+              </a>
+
+          </div>
+
+          <h3 class="w3-padding-16 w3-text-light-grey">My Skills</h3>
+
+          <p class="w3-wide">C/C++</p>
+          <div class="w3-light-gray">
+            <div class="w3-red" style="height:28px;width:85%"></div>
+          </div>
+
+          <p class="w3-wide">Java</p>
+          <div class="w3-light-gray">
+            <div class="w3-green" style="height:28px;width:60%"></div>
+          </div>
+
+          <p class="w3-wide">Algorithms & Data Structures</p>
+          <div class="w3-light-gray">
+            <div class="w3-blue" style="height:28px;width:70%"></div>
+          </div>
+
+          <p class="w3-wide">Javascript</p>
+          <div class="w3-light-gray">
+            <div class="w3-amber" style="height:28px;width:80%"></div>
+          </div>
+
+          <p class="w3-wide">HTML & CSS</p>
+          <div class="w3-light-gray">
+            <div class="w3-cyan" style="height:28px;width:80%"></div>
+          </div>
+
+          <p class="w3-wide">NodeJS</p>
+          <div class="w3-light-gray">
+            <div class="w3-purple" style="height:28px;width:70%"></div>
+          </div>
+
+          <p class="w3-wide">MySQL and MongoDB</p>
+          <div class="w3-light-gray">
+            <div class="w3-orange" style="height:28px;width:60%"></div>
+          </div>
+
+          <p class="w3-wide">Adobe Photoshop & InDesign</p>
+          <div class="w3-light-gray">
+            <div class="w3-pink" style="height:28px;width:55%"></div>
+          </div>
+
+          <br>
+
+          <div class="w3-row w3-center w3-padding-10 w3-section w3-green">
+            <div class="w3-third w3-section">
+              <h4>An Efficient Manager</h4>
+            </div>
+            <div class="w3-third w3-section">
+              <h4>Team Player</h4>
+            </div>
+            <div class="w3-third w3-section">
+              <h4>Quick Learner</h4>
+            </div>
+          </div>
+
+          <div class="w3-center">
+            <a href="https://drive.google.com/file/d/0B9BwoyWbNMqoaFdteXJZS0NqVms/view?usp=sharing">
+              <button class="w3-button w3-amber w3-hover-light-gray w3-ripple w3-round-large w3-padding-large w3-section">
+                <i class="fa fa-download"></i> Download Resume
+              </button>
+            </a>
+          </div>
+        </div>
+      <!-- End About Section -->
+      </div>
+
+      <!-- Timeline Section -->
+      <div class="w3-padding-64 w3-content" id="timeline">
+          <h2 class="w3-text-light-grey">MY TIMELINE</h2>
+          <hr style="width:200px" class="w3-opacity">
+          
+          <!-- Timeline for Desktops/Laptops-->
+          <div class="w3-hide-medium w3-hide-small">
+
+            <div class="w3-bar w3-black">
+              <button class="w3-bar-item w3-button tablink w3-amber" onclick="openTab(event,'Experience')">Experience</button>
+              <button class="w3-bar-item w3-button tablink" onclick="openTab(event,'Education')">Education</button>
+              <button class="w3-bar-item w3-button tablink" onclick="openTab(event,'Achievements')">Honors & Achievements</button>
+            </div>
+
+            <div class="w3-padding-64 w3-light-gray w3-content mySlides" id="Experience">
+
+                <div class="w3-animate-zoom">
+                <div class="w3-row-padding">
+
+                  <div class="w3-half">
+                    <div class="w3-card-4 w3-white w3-center">
+                      <div class="container">
+                        <img class='resize_fit_center' src='img/logos/sendx.png' />
+                      </div>
+                      <div class="w3-container">
+                        <h3><strong>SendX</strong></h3>
+                        <h5>Software & Web developer Intern</h5>
+                        <p>October <strong>2016</strong> - January <strong>2017</strong></p>
+                        <p>
+                          I was tasked with software development and growth based products.
+                          I developed wordpress plugins and chrome extensions.
+                          I had also developed mechanisms in NodeJS for PUSH notifications.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="w3-half">
+                    <div class="w3-card-4 w3-white w3-center">
+                      <div class="container">
+                        <img class='resize_fit_center' src='img/logos/mozilla.png' />
+                      </div>
+                      <div class="w3-container">
+                        <h3><strong>Gnu Linux Users Group MVIT</strong></h3>
+                        <h5>GLUG MVIT Treasurer</h5>
+                        <p>August <strong>2016</strong> - Present</p>
+                        <p>
+                          I had organised workshops
+                          on technologies like version control systems such as
+                          GIT, Machine Learning using python and other open source technologies offered by Python Foundation India.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+              <div class="w3-padding-64 w3-light-gray w3-content mySlides" style="display:none" id="Education">
+
+                <div class="w3-animate-zoom">
+                  <div class="w3-row-padding">
+
+                    <div class="w3-third">
+                      <div class="w3-card-4 w3-white w3-center">
+                        <div class="container">
+                          <img class='resize_fit_center' src='img/logos/smvit.png' />
+                        </div>
+                        <div class="w3-container">
+                          <h5><strong>Sir M. Visvesvaraya Institute of Technology</strong></h5>
+                          <h6>Bachelor of Engineering in Computer Science & Engineering</h6>
+                          <p>August <strong>2014</strong> - Present</p>
+                          <p>
+                            <strong>Aggregate = 71.1%.</strong>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="w3-third">
+                      <div class="w3-card-4 w3-white w3-center">
+                        <div class="container">
+                          <img class='resize_fit_center' src='img/logos/cmrnps.jpg' />
+                        </div>
+                        <div class="w3-container">
+                          <h5><strong>CMR National <br> Public School</strong></h5>
+                          <h5>12th <br> Grade</h5>
+                          <p>2012 - 2014</p>
+                          <p>
+                             <strong>Percentage = 93.2%.</strong>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="w3-third">
+                      <div class="w3-card-4 w3-white w3-center">
+                        <div class="container">
+                          <img class='resize_fit_center' src='img/logos/sjhs.png' />
+                        </div>
+                        <div class="w3-container">
+                          <h5><strong>St. Johns High School Bangalore</strong></h5>
+                          <h5>10th <br> Grade</h5>
+                          <p>2000 - 2012</p>
+                          <p>
+                             <strong>Percentage = 90.57%.</strong>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+                <div class="w3-padding-64 w3-light-gray w3-content mySlides" style="display:none" id="Achievements">
+
+                  <div class="w3-animate-zoom">
+                    <div class="w3-row-padding">
+
+                      <div class="w3-half">
+                        <div class="w3-card-4 w3-white w3-center">
+                          <div class="container">
+                            <img class='resize_fit_center' src='img/logos/IJCA.jpg' />
+                          </div>
+                          <div class="w3-container">
+                            <h5><strong>Research Paper Published</strong></h5>
+                            <p>JUL 2017</p>
+                            <p>
+                              Published a research paper titled <strong>"A Novel Double
+                              Backtracking Approach to the N-Queens Problem in Three Dimensions"
+                              </strong> in <strong>IJCA</strong>.
+                              <br>
+                              Click <a href="http://www.ijcaonline.org/archives/volume169/number5/27978-2017914749"><strong><u>here</u></strong></a>
+                              for the paper.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="w3-half">
+                        <div class="w3-card-4 w3-white w3-center">
+                          <div class="container">
+                            <img class='resize_fit_center' src='img/logos/smvit.png' />
+                          </div>
+                          <div class="w3-container">
+                            <h5><strong>1 of best 5 DBMS Projects</strong></h5>
+                            <p>JAN 2017</p>
+                            <p>
+                              <a href="https://github.com/TwitrTraffic"><strong>"<u>Twitr-Traffic</u>"
+                              </strong></a>, was selected as one among the best five projects in Database
+                              Applications lab of <strong>Sir M. Visvesvaraya Institute of Technology</strong>
+                              during the academic year <strong>2016-2017</strong>.
+                              <br>
+                              Click <a href="https://drive.google.com/file/d/0B9BwoyWbNMqobGZuLUpJOEY1OEU/view"><strong><u>here</u></strong></a>
+                              for the Certificate.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                    <br>
+                    <div class="w3-row-padding">
+
+                      <div class="w3-half">
+                        <div class="w3-card-4 w3-white w3-center">
+                          <div class="container">
+                            <img class='resize_fit_center' src='img/logos/udacity.png' />
+                          </div>
+                          <div class="w3-container">
+                            <h5><strong>Udacity Nanodegree Scholarship</strong></h5>
+                            <p>MAR 2016</p>
+                            <p>
+                              I recieved one among the 1000 scholarships provided by
+                              <strong>Tata Trusts & Google India</strong> for Udacity's
+                              <strong>Android-Developer Nanodegree program</strong>.
+                              Selected from several thousands of applicants from India.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="w3-half">
+                        <div class="w3-card-4 w3-white w3-center">
+                          <div class="container">
+                            <img class='resize_fit_center' src='img/logos/napsonic.jpg' />
+                          </div>
+                          <div class="w3-container">
+                            <h5><strong>3rd in Physics-Project</strong></h5>
+                            <p>AUG 2013</p>
+                            <p>
+                              I secured the 3rd position for my physics mini-project in the
+                              annual inter-college fest of <strong>NPS Rajajinagar</strong>
+                              called <strong>NaPSonic</strong> for the event <strong>"The Scientists Courtroom"</strong>.
+                              <br>
+                              Click <a href="https://drive.google.com/open?id=0B9BwoyWbNMqoUWpnMGI3U2RhNjg"><strong><u>here</u></strong></a> for the Certificate.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                    <br>
+                    <div class="w3-row-padding">
+
+                      <div class="w3-half">
+                        <div class="w3-card-4 w3-white w3-center">
+                          <div class="container">
+                            <img class='resize_fit_center' src='img/logos/zenith.png' />
+                          </div>
+                          <div class="w3-container">
+                            <h5><strong>2nd in Competetive Gaming</strong></h5>
+                            <p>AUG 2013</p>
+                            <p>
+                              Our team bagged the 2nd position for competetive gaming in the
+                              annual inter-college fest of <strong>NPS Koramangala</strong>
+                              called <strong>ZENITH</strong> for the event <strong>"Trigger"</strong>.
+                              <br>
+                              Click <a href="https://drive.google.com/open?id=0B9BwoyWbNMqoazNPcTRnRm51Vms"><strong><u>here</u></strong></a> for the Certificate.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="w3-half">
+                        <div class="w3-card-4 w3-white w3-center">
+                          <div class="container">
+                            <img class='resize_fit_center' src='img/logos/sjhs.png' />
+                          </div>
+                          <div class="w3-container">
+                            <h5><strong>One of Top 10 Students</strong></h5>
+                            <p>JUL 2012</p>
+                            <p>
+                              One among the top 10 students of St. Johns High School in the grade
+                              10(ICSE) board Exams 2012, by securing <strong>90.57%</strong>.
+                              <br>
+                              Click <a href="https://drive.google.com/open?id=0B9BwoyWbNMqoTDdIRS1zNGI0UTg"><strong><u>here</u></strong></a> for the Certificate
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                    <br>
+                    <div class="w3-row-padding">
+
+                      <div class="w3-half">
+                        <div class="w3-card-4 w3-white w3-center">
+                          <div class="container">
+                            <img class='resize_fit_center' src='img/logos/sjhs.png' />
+                          </div>
+                          <div class="w3-container">
+                            <h5><strong>100% in Computer Applications</strong></h5>
+                            <p>JUL 2012</p>
+                            <p>
+                              I had secured a 100% score in Computer Applications Exam of the 2012
+                              ICSE Grade 10 Board examinations.
+                              <br>
+                              Click <a href="https://drive.google.com/open?id=0B9BwoyWbNMqobDk2WEo0SUlRaXM"><strong><u>here</u></strong></a> for the Certificate
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mobile/Tab Version of the website -->
+
+          <div class="w3-hide-large w3-accordion w3-light-grey">
+
+            <button class="w3-button w3-ripple w3-block w3-amber w3-left-align">
+              Experience <i class="fa fa-caret-down"></i>
+            </button>
+            <div id="Exp" class="w3-show w3-container">
+
+              <br>
+              <div class="w3-card-4 w3-white w3-center">
+                <div class="container">
+                  <img class='resize_fit_center' src='img/logos/notnull.png' />
+                </div>
+                <div class="w3-container">
+                  <h3><strong>notNULL</strong></h3>
+                  <h5>Software & web developer Intern</h5>
+                  <p>2015 - 2016</p>
+                  <p>
+                    I designed their webapp using materialize and
+                    bootstrap front-end and meteor stack back-end.
+                    I had also developed REST APIs in NodeJS.
+                  </p>
+                </div>
+              </div>
+
+              <br>
+              <div class="w3-card-4 w3-white w3-center">
+                <div class="container">
+                  <img class='resize_fit_center' src='img/logos/mozilla.png' />
+                </div>
+                <div class="w3-container">
+                  <h3><strong>Mozilla</strong></h3>
+                  <h5>Firefox Student Ambassador</h5>
+                  <p>2015 - 2016</p>
+                  <p>
+                    I had conducted workshops
+                    on technologies like version control systems such as
+                    GIT and other open source technologies offered by Mozilla.
+                  </p>
+                </div>
+              </div>
+
+              <br>
+            </div>
+
+            <button onclick="accordion('Edu')" class="w3-button w3-ripple w3-block w3-black w3-left-align">
+              Education <i class="fa fa-caret-down"></i>
+            </button>
+            <div id="Edu" class="w3-hide w3-animate-zoom w3-container">
+
+              <br>
+              <div class="w3-card-4 w3-white w3-center">
+                <div class="container">
+                  <img class='resize_fit_center' src='img/logos/smvit.png' />
+                </div>
+                <div class="w3-container">
+                  <h5><strong>Sir M. Visvesvaraya Institute of Technology</strong></h5>
+                  <h5>B.E. in Computer Science & Engineering</h5>
+                  <p>2014 - current</p>
+                  <p>
+                    <strong>Aggregate = 82.08%.</strong>
+                  </p>
+                </div>
+              </div>
+
+              <br>
+              <div class="w3-card-4 w3-white w3-center">
+                <div class="container">
+                  <img class='resize_fit_center' src='img/logos/cmrnps.jpg' />
+                </div>
+                <div class="w3-container">
+                  <h5><strong>CMR National <br> Public School</strong></h5>
+                  <h5>12th <br> Grade</h5>
+                  <p>2012 - 2014</p>
+                  <p>
+                     <strong>Percentage = 93.2%.</strong>
+                  </p>
+                </div>
+              </div>
+
+              <br>
+              <div class="w3-card-4 w3-white w3-center">
+                <div class="container">
+                  <img class='resize_fit_center' src='img/logos/sjhs.png' />
+                </div>
+                <div class="w3-container">
+                  <h5><strong>St. Johns High School Bangalore</strong></h5>
+                  <h5>10th <br> Grade</h5>
+                  <p>2000 - 2012</p>
+                  <p>
+                     <strong>Percentage = 90.57%.</strong>
+                  </p>
+                </div>
+              </div>
+
+              <br>
+            </div>
+
+            <button onclick="accordion('H&a')" class="w3-button w3-ripple w3-block w3-black w3-left-align">
+              Honors & Achievements <i class="fa fa-caret-down"></i>
+            </button>
+            <div id="H&a" class="w3-hide w3-animate-zoom w3-container">
+
+                <br>
+                <div class="w3-card-4 w3-white w3-center">
+                  <div class="container">
+                    <img class='resize_fit_center' src='img/logos/IJCA.jpg' />
+                  </div>
+                  <div class="w3-container">
+                    <h5><strong>Research Paper Published</strong></h5>
+                    <p>JUL 2017</p>
+                    <p>
+                      Published a research paper titled <strong>"A Novel Double
+                      Backtracking Approach to the N-Queens Problem in Three Dimensions"
+                      </strong> in <strong>IJCA</strong>.
+                      <br>
+                      Click <a href="http://www.ijcaonline.org/archives/volume169/number5/27978-2017914749"><strong><u>here</u></strong></a>
+                      for the paper.
+                    </p>
+                  </div>
+                </div>
+
+                <br>
+                <div class="w3-card-4 w3-white w3-center">
+                  <div class="container">
+                    <img class='resize_fit_center' src='img/logos/smvit.png' />
+                  </div>
+                  <div class="w3-container">
+                    <h5><strong>1 of best 5 DBMS Projects</strong></h5>
+                    <p>JAN 2017</p>
+                    <p>
+                      <a href="https://github.com/TwitrTraffic"><strong>"<u>Twitr-Traffic</u>"
+                      </strong></a>, was selected as one among the best five projects in Database
+                      Applications lab of <strong>Sir M. Visvesvaraya Institute of Technology</strong>
+                      during the academic year <strong>2016-2017</strong>.
+                      <br>
+                      Click <a href="https://drive.google.com/file/d/0B9BwoyWbNMqobGZuLUpJOEY1OEU/view"><strong><u>here</u></strong></a>
+                      for the Certificate.
+                    </p>
+                  </div>
+                </div>
+
+                <br>
+                <div class="w3-card-4 w3-white w3-center">
+                  <div class="container">
+                    <img class='resize_fit_center' src='img/logos/udacity.png' />
+                  </div>
+                  <div class="w3-container">
+                    <h5><strong>Udacity Nanodegree Scholarship</strong></h5>
+                    <p>MAR 2016</p>
+                    <p>
+                      I recieved one among the 1000 scholarships provided by
+                      <strong>Tata Trusts & Google India</strong> for Udacity's
+                      <strong>Android-Developer Nanodegree program</strong>.
+                      Selected from several thousands of applicants from India.
+                    </p>
+                  </div>
+                </div>
+
+                <br>
+                <div class="w3-card-4 w3-white w3-center">
+                  <div class="container">
+                    <img class='resize_fit_center' src='img/logos/napsonic.jpg' />
+                  </div>
+                  <div class="w3-container">
+                    <h5><strong>3rd in Physics-Project</strong></h5>
+                    <p>AUG 2013</p>
+                    <p>
+                      I secured the 3rd position for my physics mini-project in the
+                      annual inter-college fest of <strong>NPS Rajajinagar</strong>
+                      called <strong>NaPSonic</strong> for the event <strong>"The Scientists Courtroom"</strong>.
+                      <br>
+                      Click <a href="https://drive.google.com/open?id=0B9BwoyWbNMqoUWpnMGI3U2RhNjg"><strong><u>here</u></strong></a> for the Certificate.
+                    </p>
+                  </div>
+                </div>
+
+                <br>
+                <div class="w3-card-4 w3-white w3-center">
+                  <div class="container">
+                    <img class='resize_fit_center' src='img/logos/zenith.png' />
+                  </div>
+                  <div class="w3-container">
+                    <h5><strong>2nd in Competetive Gaming</strong></h5>
+                    <p>AUG 2013</p>
+                    <p>
+                      Our team bagged the 2nd position for competetive gaming in the
+                      annual inter-college fest of <strong>NPS Koramangala</strong>
+                      called <strong>ZENITH</strong> for the event <strong>"Trigger"</strong>.
+                      <br>
+                      Click <a href="https://drive.google.com/open?id=0B9BwoyWbNMqoazNPcTRnRm51Vms"><strong><u>here</u></strong></a> for the Certificate.
+                    </p>
+                  </div>
+                </div>
+
+                <br>
+                <div class="w3-card-4 w3-white w3-center">
+                  <div class="container">
+                    <img class='resize_fit_center' src='img/logos/sjhs.png' />
+                  </div>
+                  <div class="w3-container">
+                    <h5><strong>One of Top 10 Students</strong></h5>
+                    <p>JUL 2012</p>
+                    <p>
+                      One among the top 10 students of St. Johns High School in the grade
+                      10(ICSE) board Exams 2012, by securing <strong>90.57%</strong>.
+                      <br>
+                      Click <a href="https://drive.google.com/open?id=0B9BwoyWbNMqoTDdIRS1zNGI0UTg"><strong><u>here</u></strong></a> for the Certificate
+                    </p>
+                  </div>
+                </div>
+
+                <br>
+                <div class="w3-card-4 w3-white w3-center">
+                  <div class="container">
+                    <img class='resize_fit_center' src='img/logos/sjhs.png' />
+                  </div>
+                  <div class="w3-container">
+                    <h5><strong>100% in Computer Applications</strong></h5>
+                    <p>JUL 2012</p>
+                    <p>
+                      I had secured a 100% score in Computer Applications Exam of the 2012
+                      ICSE Grade 10 Board examinations.
+                      <br>
+                      Click <a href="https://drive.google.com/open?id=0B9BwoyWbNMqobDk2WEo0SUlRaXM"><strong><u>here</u></strong></a> for the Certificate
+                    </p>
+                  </div>
+                </div>
+
+                <br>
+            </div>
+          </div>
+
+      </div>
+      <!-- End Experience Section -->
+
+
+      <!-- Contact Section -->
+      <div class="w3-padding-64 w3-content w3-text-light-grey" id="contact">
+        <h2 class="w3-text-light-grey">CONTACT ME</h2>
+        <hr style="width:200px" class="w3-opacity">
+
+        <div class="w3-section">
+          <p>
+            <i class="fa fa-map-marker fa-fw w3-text-amber w3-xlarge w3-margin-right"></i> Bangalore, IN
+          </p>
+          <p class="w3-text-amber">
+            <a style="text-decoration:none;" href="tel:+919902933210">
+              <i class="fa fa-phone fa-fw w3-text-amber w3-xlarge w3-margin-right"></i>  +91-9902933210
+            </a>
+          </p>
+          <p class="w3-text-amber">
+            <a style="text-decoration:none;" href="mailto:akhil.sudh@gmail.com">
+              <i class="fa fa-envelope fa-fw w3-text-amber w3-xlarge w3-margin-right"> </i>  samcmvs11225@gmail.com
+            </a>
+          </p>
+        </div><br>
+      <!-- End Contact Section -->
+      </div>
+
+        <!-- Footer -->
+      <footer class="w3-content w3-center w3-padding-64 w3-text-light-grey w3-xlarge">
+
+        <a style="text-decoration:none;" href="https://www.linkedin.com/in/Mahendra114027/" target="_blank">
+          <i class="fa fa-linkedin w3-xxlarge w3-text-amber w3-hover-opacity"></i>
+        </a>
+
+        <a style="text-decoration:none;" href="https://www.facebook.com/Mahendra114027" target="_blank">
+          <i class="fa fa-facebook-official w3-xxlarge w3-text-amber w3-hover-opacity"></i>
+        </a>
+
+        <a style="text-decoration:none;" href="https://plus.google.com/+MahendraSingh114027" target="_blank">
+          <i class="fa fa-google-plus w3-xxlarge w3-text-amber w3-hover-opacity"></i>
+        </a>
+
+        <a style="text-decoration:none;" href="https://twitter.com/Mahendra12225" target="_blank">
+          <i class="fa fa-twitter w3-xxlarge w3-text-amber w3-hover-opacity"></i>
+        </a>
+
+        <a style="text-decoration:none;" href="https://github.com/Mahendra114027" target="_blank">
+          <i class="fa fa-github w3-xxlarge w3-text-amber w3-hover-opacity w3-hide-small"></i>
+        </a>
+
+        <p class="w3-medium w3-text-amber">Copyright &copy; Mahendra S<span class="w3-hide-small">ingh</span> 2018</p>
+      <!-- End footer -->
+      </footer>
+
+    <!-- END PAGE CONTENT -->
+    </div>
+
+    <script src="js/type.js" type="text/javascript">
+    </script>
+    <script src="js/dropdown.js" type="text/javascript">
+    </script>
+    <script src="js/accordion.js" type="text/javascript">
+    </script>
+    <script src="js/pagination.js" type="text/javascript">
+    </script>
+
+  </body>
 </html>
