@@ -994,3 +994,11 @@ a:hover {
 		padding: 0 1em;
 	}
 }
+
+/*For Profile*/
+.profileSet {
+	max-height: 400px;
+	max-width: 300px;
+	border-radius: 20%;
+	border: 2px solid #ffffff;
+}
